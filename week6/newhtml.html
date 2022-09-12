@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        {{message}}
+
+        <div>
+            <select v-model="selected">
+                <option value="option1">option 1</option>
+                <option value="option2">option 2</option>
+            </select>
+            <br>
+            <div>
+                The selected option is:
+                <br>
+                {{selected}}
+            </div>
+        </div>
+        <div>
+            <select name="" id="" v-model="dynamicValues">
+                <option v-for="num in dynamicValues" v-bind:value="num">{{num}}</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" v-model="vmodelmessage">
+            <br>    
+            This is a v model message:{{vmodelmessage}}
+            <br>
+            <input type="text" v-bind:value="vbindingmessage">
+            <br>
+            This is a v binding message: {{vbindingmessage}}
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+                    vmodelmessage:"V model Example",
+                    vbindingmessage:"V binding Example",
+                    selected:"",
+                    dynamicValues:[1,2,3,4,5,6,7,8],
+                    dynamicSelected:"",
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>
